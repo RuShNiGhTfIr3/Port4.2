@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+@import url('https://fonts.adobe.com/fonts/aller#details-section');
+@import"reset";
+
+header{
+    background-color: #A1D8D3;
+    font-family: 'Righteous', cursive;
+    display: flex;
+    flex-direction: right;
+    align-items: center;
+
+    #logo{
+        margin: 1rem;
+    }
+
+    h1{
+        text-transform: uppercase;
+        font-size: 2em;
+        font-weight: 700px;
+    }
+
+    input{
+        padding: .5rem;
+        width: 60%;
+        height: 15px;
+        border-style: none;
+        border-radius: 5px;
+        margin: 1rem;
+        margin-left: 2rem;
+        position: relative;
+
+    }
+}
+
+#search{
+    position: absolute;
+    right: 13rem;
+    background-color: #DCDCDB;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
+#headerIcons{
+    display: flex;
+    margin-left: 2rem;
+    align-items: center;
+
+    #userIcon{
+        margin-right: 2rem;
+    }
+
+}
+
+body{
+    background-color: #F1F1F0;
+}
+
+#navBar{
+    background-color: black;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    box-shadow: 10px 5px 5px rgba(0,0,0,.30);
+
+    a{
+        margin: 1rem;
+        margin-right: 2rem;
+        text-decoration: none;
+        color: white;
+        font-size: 1.8em;
+        font-family: aller, sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+}
+
+#featured{
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+
+    img{
+        position: relative;
+    }
+}
+
+#scroll{
+    position:absolute;
+    top: 25rem;
+}
+
+.feat{
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border-style: none;
+    background-color: #F1F1F0;
+    margin: 2px;
+}
+
+.active{
+    background-color: #A1D8D3;
+}
+
+#sales{
+    background-color: #DCDCDB;
+    width: 200px;
+    height: 200px;
+    border-style: solid;
+    margin-left: 28.5rem;
+}
+
+#buyList{
+    background-color: #DCDCDB;
+    width: 200px;
+    height: 200px;
+    border-style: solid;
+    margin-left: 22rem;
+}
+
+#events{
+    background-color: #DCDCDB;
+    width: 600px;
+    height: 400px;
+    border-style: solid;
+    margin-right: 20rem;
+    
+}
+
+#content{
+    display: grid;
+    grid-template-columns:repeat(2,1fr);
+}
