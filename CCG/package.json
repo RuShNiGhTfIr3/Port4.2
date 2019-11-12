@@ -1,16 +1,12 @@
 {
   "name": "ccg",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
-    "browser-sync": "^2.26.7",
-    "gulp": "^4.0.2",
-    "gulp-sass": "^4.0.2",
     "sass": "^1.23.3"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.5",
+    "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
     "gulp-sass": "^4.0.2",
     "node-sass": "^4.12.0"
@@ -21,5 +17,6 @@
     "build": "gulp"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "description": ""
 }

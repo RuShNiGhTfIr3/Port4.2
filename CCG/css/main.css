@@ -18,7 +18,7 @@ input {
   font-size: inherit; }
 
 header {
-  background-color: #A1D8D3;
+  background-color: #61D8CE;
   font-family: 'Righteous', cursive;
   display: flex;
   flex-direction: right;
@@ -31,7 +31,7 @@ header {
     font-weight: 700px; }
   header input {
     padding: .5rem;
-    width: 60%;
+    width: 40%;
     height: 15px;
     border-style: none;
     border-radius: 5px;
@@ -41,23 +41,21 @@ header {
 
 #search {
   position: absolute;
-  right: 13rem;
-  background-color: #DCDCDB;
-  border-radius: 5px;
+  right: 28.5rem;
   padding: 5px; }
 
 #headerIcons {
   display: flex;
-  margin-left: 2rem;
+  margin-left: 15rem;
   align-items: center; }
   #headerIcons #userIcon {
     margin-right: 2rem; }
 
 body {
-  background-color: #F1F1F0; }
+  background-color: #515052; }
 
 #navBar {
-  background-color: black;
+  background-color: #17191C;
   text-decoration: none;
   color: white;
   display: flex;
