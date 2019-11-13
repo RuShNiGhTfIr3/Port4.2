@@ -46,7 +46,7 @@ header {
 
 #headerIcons {
   display: flex;
-  margin-left: 15rem;
+  margin-left: 18rem;
   align-items: center; }
   #headerIcons #userIcon {
     margin-right: 2rem; }
@@ -66,7 +66,7 @@ body {
     margin-right: 2rem;
     text-decoration: none;
     color: white;
-    font-size: 1.8em;
+    font-size: 1.5em;
     font-family: aller, sans-serif;
     text-transform: uppercase;
     font-weight: 700; }
@@ -74,13 +74,14 @@ body {
 #featured {
   display: flex;
   justify-content: center;
-  margin: 1rem; }
+  margin: 1rem;
+  margin-top: 2rem; }
   #featured img {
     position: relative; }
 
 #scroll {
   position: absolute;
-  top: 25rem; }
+  top: 25.3rem; }
 
 .feat {
   width: 14px;
