@@ -4,6 +4,20 @@ class API{
         this.BASE_URL = 'https://api.scryfall.com';
     }
 
+    random(){
+
+            return fetch(`${this.BASE_URL}/cards/random`).then(res=>{
+                if(res.ok){
+                    return res.json();
+                }
+                throw new Error(res);
+            }).then(card=>{
+                return card;
+            })
+
+       
+    }
+
     searchModal(name){
         let div = document.querySelector("#modalCards");
             return fetch(`${this.BASE_URL}/cards/search?q=${name}`).then(res=>{
@@ -15,7 +29,7 @@ class API{
         .then(cards=>{
             div.innerHTML="";
             for(let i=0;cards.total_cards<15;i++){
-                if(cards.data[i].name){
+                if(cards.data[i].name!=undefined){
                     let html= '';
                     html+=`<li><p>${i}${cards.data[i].name}</p></li>`
                     div.insertAdjacentHTML('beforeend',html);
