@@ -4,17 +4,16 @@ class API{
         this.BASE_URL = 'https://api.scryfall.com';
     }
 
-    random(){
+    async random(){
 
-            return fetch(`${this.BASE_URL}/cards/random`).then(res=>{
-                if(res.ok){
-                    return res.json();
-                }
-                throw new Error(res);
-            }).then(card=>{
-                return card;
-            })
-
+        return await fetch(`${this.BASE_URL}/cards/random`).then(res=>{
+            if(res.ok){
+                return res.json();
+            }
+            throw new Error(res);
+        }).then(card=>{
+            return card;
+        })
        
     }
 

@@ -9,25 +9,51 @@ class Homepage{
         activeScroll.forEach(button=>{
             button.addEventListener('click',this.changeFeatured)
         })
-        this.sales();
+        this.loadContent();
+
+        this.loadEvents();
+    }
+
+    loadEvents(){
+        let file = 'jsons/events.json';
+        let div = document.querySelector("#events");
+        fetch('jsons/events.json').then(res=>{
+            return res.json();
+        }).then(json=>{
+            json.events.forEach(events=>{
+                let html="";
+                html+=`<div>
+                <h3>${events.title}</h3>
+                <img src=${events.picture} alt="${events.title} picture"/>
+                <p><strong>When</strong>:${events.date}</p>
+                <p><strong>Time</strong>:${events.time}</p>
+                <p><strong>Entry</strong>:${events.entry}</p>
+                <p><strong>Description</strong>:${events.description}</p>
+                `
+                div.insertAdjacentHTML('beforeend',html)
+            })
+        })
     }
 
     changeFeatured(e){
         let active= document.querySelector(".activeScroll");
+        let featuredImage= document.querySelector("#featured img");
         active.classList.toggle("activeScroll");
         e.target.classList.toggle("activeScroll");
 
+        console.log(e.target.dataset.feat)
         switch(e.target.dataset.feat){
-            case 1:
-
+            case "1":
+            featuredImage.src="Pictures/ccgholidarybanner.png";
+            console.log("test")
             break;
 
-            case 2:
-
+            case "2":
+                featuredImage.src="Pictures/Throne-of-Eldrane-information.png";
             break;
 
-            case 3:
-
+            case "3":
+                featuredImage.src="Pictures/Throne-of-Eldrane-information.jpg";
             break;
         }
     }
@@ -51,37 +77,31 @@ class Homepage{
 
     }
 
-    sales(){
-        let sales=[];
+    async loadContent(){
         let salesDiv=document.querySelector("#sales");
-        
+        let buyListDiv=document.querySelector("#buyList");
+        let sales = await this.randomCards();
+        let buylist= await this.randomCards();
 
-        const getCards=async _=>{
-            console.log("start")
-            let temp=[];
-            for(let i=0;i<4;i++){
-                this.api.random().then(random=>{
-                    temp.push(random);
-                })
-            }
-        }
 
-        //  sales.forEach(card=>{
-        //     let html='';
-        //     html+=`<div><p>${card.name}</p></div>`
-        //     salesDiv.insertAdjacentHTML('beforeend',html);
-        //     console.log(card.name)
-        // })
+        sales.forEach(card=>{
+            let html= '';
+            html+=`<div><p>${card.name}</p><img src="${card.image_uris.small}"/><p>${card.prices.usd}</p></div>`;
+            salesDiv.insertAdjacentHTML('beforeend',html);
+        })
+
+        buylist.forEach(card=>{
+            let html= '';
+            console.log(card)
+            html+=`<div><p>${card.name}</p><img src="${card.image_uris.small}"/><p>${card.prices.usd}</p></div>`;
+            buyListDiv.insertAdjacentHTML('beforeend',html);
+        })
+
     }
 
     randomCards(){
-        let sales=[];
-        for(let i=0;i<4;i++){
-            this.api.random().then(random=>{
-                sales.push(random);
-            })
-        }
-
-        return sales
+        return Promise.all([this.api.random(), this.api.random(), this.api.random(),this.api.random()]).then(array=>{
+           return array;
+        })
     }
 }
