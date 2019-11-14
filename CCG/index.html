@@ -7,12 +7,20 @@
     </head>
     <body>
         <header id="header">
-            <a href="index.html"><img width="60" height="60" id="logo" src="/Icons/Icon.png" alt="compassion card games logo"></a>
+            <a href="index.html"><img class="img-fluid" width="60" height="60" id="logo" src="/Icons/Icon.png" alt="compassion card games logo"></a>
+            
             <h1>Compassion Card Games</h1>
-            <input type="text" placeholder="Search..."><img id="search" width="25" height="25" src="/Icons/search.png" alt=""></input>
-            <div id="headerIcons">
-                <img id="userIcon" src="/Icons/user (2).png" width="45" height="45" alt="user Icon">
-                <img id="shoppingCart" src="/Icons/shopping-cart.png" width="45" height="45" alt="shopping cart">
+            <div id="userInteraction">
+                <div id="userIcons">
+                    <img id="userIcon" src="/Icons/usericon.png" width="25" height="25" alt="user Icon">
+                    <img id="shoppingCart" src="/Icons/shoppingcart.png" width="25" height="25" alt="shopping cart">
+                </div>
+                <input id="searchBar" type="text" placeholder="Search..."><img id="search" width="24" height="24" src="/Icons/search.png" alt=""></input>
+                <div class="hidden" id="modalSearch">
+                    <ul id="modalCards">
+
+                    </ul>
+                </div>
             </div>
         </header>
 
@@ -27,35 +35,39 @@
             <a href="">Buy List</a>
         </nav>
 
-        <div id="featured">
-            <img width="2000" height=250 src="./Pictures/ccgholidarybanner.png" alt="feautred content">
-            <div id="scroll">
-                <button class="feat active"></button>
-                <button class="feat"></button>
-                <button class="feat"></button>
+        <div class="container">
+            <div id="featured">
+                <img  class="img-fluid" width="2000" height=250 src="./Pictures/ccgholidarybanner.png" alt="feautred content">
+                <div id="scroll">
+                    <button class="feat active"></button>
+                    <button class="feat"></button>
+                    <button class="feat"></button>
+                </div>
             </div>
+
+            <div id="content">
+                <div id="sales">
+                    <h2>Sales</h2>
+                </div>
+
+                <div id="events">
+                    <h2>Events</h2>
+                </div>
+
+                <div id="buyList">
+                    <h2>Buy List</h2>
+
+                </div>
+
+            </div>
+
+            <footer>
+                @2019
+            </footer>
         </div>
 
-        <!-- <div id="content">
-            <div id="sales">
-                
-            </div>
-
-            <div id="events">
-
-            </div>
-
-            <div id="buyList">
-
-            </div>
-
-         </div> -->
-
-        
-
-        <!-- <footer>
-            @2019
-        </footer> -->
-        <script src="/js/test.js"></script>
+        <script src="/js/API.js"></script>
+        <script src="/js/Homepage.js"></script>
+        <script src="/js/index.js"></script>
     </body>
 </html>
