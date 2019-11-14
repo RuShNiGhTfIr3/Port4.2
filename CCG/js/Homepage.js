@@ -4,14 +4,22 @@ class Homepage{
         this.api = new API();
         let searchBar= document.querySelector("#searchBar");
         let activeScroll = document.querySelectorAll(".feat");
+        let searchForm= document.querySelector(".searchForm");
 
-        searchBar.addEventListener('input',this.search.bind(this));
+        searchBar.addEventListener('input',this.searchModal.bind(this));
+        searchForm.addEventListener('submit',this.search)
         activeScroll.forEach(button=>{
             button.addEventListener('click',this.changeFeatured)
         })
         this.loadContent();
-
         this.loadEvents();
+    }
+
+    search=(e)=>{
+        e.preventDefault();
+        let term= document.querySelector("#searchBar").value
+        window.localStorage.setItem('searchedCard',term);
+        window.location.href = '/pages/shopping.html';
     }
 
     loadEvents(){
@@ -29,6 +37,7 @@ class Homepage{
                 <p><strong>Time</strong>:${events.time}</p>
                 <p><strong>Entry</strong>:${events.entry}</p>
                 <p><strong>Description</strong>:${events.description}</p>
+                <button>Read More</button>
                 `
                 div.insertAdjacentHTML('beforeend',html)
             })
@@ -58,7 +67,7 @@ class Homepage{
         }
     }
 
-    search=(e)=>{
+    searchModal=(e)=>{
        let searchTerm= e.target.value;
        let modal= document.querySelector("#modalSearch");
 

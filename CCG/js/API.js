@@ -38,6 +38,17 @@ class API{
         })
     }
 
+    search(card){
+        return fetch(`https://api.scryfall.com/cards/search?q=${card}`).then(res=>{
+            if(res.ok){
+                return res.json();
+            }
+            throw new Error(res);
+        }).then(res=>{
+            return res;
+        })
+    }
+
     Api(config) {
         const{endpoint = '/cards', method='GET'}= config;
         const BASE_URL = 'https://api.scryfall.com';
