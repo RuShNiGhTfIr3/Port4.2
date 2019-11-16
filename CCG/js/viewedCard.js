@@ -19,6 +19,11 @@ class View{
         return (price-rate).toFixed(2);
     }
 
+    buyList(price){
+        let rate = price*.40;
+        return(price-rate).toFixed(2);
+    }
+
     loadCard(){
         let card= localStorage.getItem("selectedCard");
         let parsed=JSON.parse(card);
@@ -39,6 +44,9 @@ class View{
             Near Mint:$${parsed.prices.usd}<button class="buy"  data-near=${parsed.prices.usd}>Buy</button>
             Light Play:$${lp}<button class="buy"  data-lp=${lp}>Buy</button>
             Heavy Play:$${hp}<button class="buy"  data-hp=${hp}>Buy</button>
+            Near Mint:$${this.buyList(parsed.prices.usd)}<button class="sell"  data-near=${this.buyList(parsed.prices.usd)}>Sell</button>
+            Light Play:$${this.buyList(lp)}<button class="sell"  data-lp=${this.buyList(lp)}>Sell</button>
+            Heavy Play:$${this.buyList(hp)}<button class="sell"  data-hp=${this.buyList(hp)}>Sell</button>
             </p>`;
         }else{
             let price = 0.01+Math.floor(Math.random()*(100-0.01));
@@ -48,6 +56,9 @@ class View{
             Near Mint:$${price}<button class="buy"  data-near=${price}>Buy</button>
             Light Play:$${lp}<button class="buy"  data-lp=${lp}>Buy</button>
             Heavy Play:$${hp}<button class="buy"  data-hp=${hp}>Buy</button>
+            Near Mint:$${price}<button class="sell"  data-near=${this.buyList(price)}>Sell</button>
+            Light Play:$${lp}<button class="sell  data-lp=${this.buyList(lp)}>Sell</button>
+            Heavy Play:$${hp}<button class="sell"  data-hp=${this.buyList(hp)}>Sell</button>
             </p>`;
         }
         
@@ -55,9 +66,14 @@ class View{
   
         page.insertAdjacentHTML('beforeend',html);
         let buttons = document.querySelectorAll(".buy");
+        let sellButtons = document.querySelectorAll(".sell");
 
         buttons.forEach(button=>{
             button.addEventListener('click',function(e){this.addToCart(e,page)}.bind(this),true);
+        })
+
+        sellButtons.forEach(button=>{
+            button.addEventListener('click',function(e){this.addToBuyCart(e,page)}.bind(this),true);
         })
         
     }
@@ -86,6 +102,33 @@ class View{
         }else{
             let json="{\"cards\":["+JSON.stringify(formatted)+"]}";
             localStorage.setItem("shoppingCart",json);
+        }
+    }
+
+    addToBuyCart(e,page){
+        e.preventDefault();
+        let card= page.getElementsByClassName("hidden")[0].innerHTML;
+        let object= JSON.parse(card);
+        let formatted=this.format(object.name,object.prices.usd,object.set,object.image_uris.small,object.collector_number,object.rarity);
+
+        if(localStorage.getItem("buyCart")){
+            let cards= localStorage.getItem("buyCart");
+            let string= JSON.stringify(formatted);
+            let obj = JSON.parse(cards);
+            let fOBJ="{\"cards\":["+string;
+            for(let i=0; i<obj.cards.length;i++){
+                if(i!=obj.cards.length-1){
+                    let str=JSON.stringify(obj.cards[i]);
+                    fOBJ+=","+str;
+                }else{
+                    let str=JSON.stringify(obj.cards[i]);
+                    fOBJ+=","+str+"]}";
+                }
+            }
+            localStorage.setItem("buyCart",fOBJ);
+        }else{
+            let json="{\"cards\":["+JSON.stringify(formatted)+"]}";
+            localStorage.setItem("buyCart",json);
         }
     }
 
