@@ -7,9 +7,9 @@ class Homepage{
         let searchForm= document.querySelector(".searchForm");
 
         searchBar.addEventListener('input',this.searchModal.bind(this));
-        searchForm.addEventListener('submit',this.search)
+        searchForm.addEventListener('submit',this.search);
         activeScroll.forEach(button=>{
-            button.addEventListener('click',this.changeFeatured)
+            button.addEventListener('click',this.changeFeatured);
         })
         this.loadContent();
         this.loadEvents();

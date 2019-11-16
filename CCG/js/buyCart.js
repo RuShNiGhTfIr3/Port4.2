@@ -38,7 +38,7 @@ class Buy{
             <img src="${card.img}"/>
             <p>${card.set}</p>
             <p>${card.rarity}*${card.number}</p>
-            <p>${card.price}</p>
+            <p>$${card.price}</p>
             <button class="removeItemBuyCart"> remove</button>
             </div>`;
             section.insertAdjacentHTML('beforeend',html);

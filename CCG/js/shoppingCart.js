@@ -5,9 +5,42 @@ window.addEventListener('DOMContentLoaded',function(e){
 class Cart{
     constructor(){
         console.log("cart opened");
+        let searchBar= document.querySelector("#searchBar");
+        let searchForm= document.querySelector(".searchForm");
+        this.api=new API();
+
         this.loadCart();
         this.subTotal();
+
+        searchBar.addEventListener('input',this.searchModal.bind(this));
+        searchForm.addEventListener('submit',this.search);
     }
+
+    search=(e)=>{
+        e.preventDefault();
+        let term= document.querySelector("#searchBar").value
+        window.localStorage.setItem('searchedCard',term);
+        window.location.href = '/pages/shopping.html';
+    }
+
+    searchModal=(e)=>{
+        let searchTerm= e.target.value;
+        let modal= document.querySelector("#modalSearch");
+ 
+        if(searchTerm.length>=4){
+            if(modal.classList.contains("hidden")){
+                modal.classList.toggle("hidden");
+            }
+ 
+            this.api.searchModal(searchTerm)
+             
+        }else if(searchTerm.length<=3){
+            if(!modal.classList.contains("hidden")){
+                modal.classList.toggle("hidden");
+            }
+        }
+ 
+     }
 
     subTotal(){
         let subTotalText = document.querySelector(".subTotal");
@@ -20,7 +53,7 @@ class Cart{
             parsed.cards.forEach(card=>{
                 subTotal+=parseFloat(card.price);
             })
-            subTotalText.innerHTML="$"+subTotal;
+            subTotalText.innerHTML="$"+subTotal.toFixed(2);
             subItems.innerHTML=`SubTotal (${parsed.cards.length} items)`
         }
     }
@@ -38,7 +71,7 @@ class Cart{
             <img src="${card.img}"/>
             <p>${card.set}</p>
             <p>${card.rarity}*${card.number}</p>
-            <p>${card.price}</p>
+            <p>$${card.price}</p>
             <button class="removeItemCart"> remove</button>
             </div>`;
             section.insertAdjacentHTML('beforeend',html);

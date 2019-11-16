@@ -5,8 +5,41 @@ window.addEventListener('DOMContentLoaded',function(e){
 class Events{
     constructor(){
         console.log("started events page");
+        let searchBar= document.querySelector("#searchBar");
+        let searchForm= document.querySelector(".searchForm");
+        this.api=new API();
+
         this.loadEvents();
+
+        searchBar.addEventListener('input',this.searchModal.bind(this));
+        searchForm.addEventListener('submit',this.search);
     }
+
+    search=(e)=>{
+        e.preventDefault();
+        let term= document.querySelector("#searchBar").value
+        window.localStorage.setItem('searchedCard',term);
+        window.location.href = '/pages/shopping.html';
+    }
+
+    searchModal=(e)=>{
+        let searchTerm= e.target.value;
+        let modal= document.querySelector("#modalSearch");
+ 
+        if(searchTerm.length>=4){
+            if(modal.classList.contains("hidden")){
+                modal.classList.toggle("hidden");
+            }
+ 
+            this.api.searchModal(searchTerm)
+             
+        }else if(searchTerm.length<=3){
+            if(!modal.classList.contains("hidden")){
+                modal.classList.toggle("hidden");
+            }
+        }
+ 
+     }
 
     loadEvents(){
         fetch('/jsons/events.json').then(res=>{

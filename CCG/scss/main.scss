@@ -29,51 +29,50 @@ body{
 header{
     background-color: #4DD599;
     display: flex;
+    align-content: center;
     align-items: center;
-
-    a{
-        margin: 1rem;
-    }
 
     h1{
         text-transform: uppercase;
-        font-family: 'Baloo Chettan', cursive;
-        margin: 1rem;
+        font-family: 'Baloo', cursive;
+        font-size: 2em;
         font-weight: 700px;
-    }
-
-    #userIcons{
-        display: flex;
-        align-items: center;
-        margin-left: 9.5rem;
-
-        #userIcon{
-            margin-right: .5rem;
-        }
-
-        img{
-            margin-bottom: 4px;
-        }
-    }
-
-    #userInteraction{
-        margin-left: 43rem;
+        color: #F2F3F4;
     }
 
     input{
-        width:13rem;
-        padding: .3rem;
+        width: 20rem;
         border-style: none;
+        padding: .5rem;
         border-radius: 5px;
-        position: relative;
+        background-color: #C1DDDD;
     }
 
-    #search {
-        position: absolute;
-        top: 3.1rem;
-        right: 1.6rem;
-    }
+}
 
+.logo{
+    margin:1rem;
+}
+
+#userInteraction{
+    float: right;
+    margin-left: auto;
+    margin-right: 2rem;
+}
+
+#userIcons{
+    display: flex;
+    flex-direction: row;
+    float: right;
+    margin-bottom: 3px;
+    a{
+        margin-left: 1rem;
+    }
+}
+
+.clear{
+    clear: left;
+    clear: right;
 }
 
 #navBar{
@@ -91,12 +90,13 @@ header{
         margin-right: 1rem;
         font-family: aller, sans-serif;
         font-weight: 700px;
-        font-size: 1.5em;
+        font-size: 1.8em;
     }
 }
 
 #featured{
     margin-top:1.5rem;
+    border-style: none;
 
     img{
         position: relative;
@@ -105,7 +105,8 @@ header{
 
 #scroll{
     position:absolute;
-    top: 25.3rem;
+    left: 50%;
+    bottom: 36.4rem;
 }
 
 .feat{
@@ -127,4 +128,19 @@ header{
 
 #modalSearch{
 background-color: white;
+}
+
+#sales{
+    width: 25%;
+}
+
+#content{
+    display: grid;
+    grid-template-columns:repeat(2,1fr);
+    grid-gap: 0;
+}
+
+#events{
+    margin-right: auto;
+    margin-left: auto;
 }
