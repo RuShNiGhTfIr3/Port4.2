@@ -3,7 +3,7 @@
     <head>
         <meta charset=utf-8>
         <title>CCG</title>
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="/css/main.css">
     </head>
     <body>
         <header id="header">
@@ -36,40 +36,21 @@
             <a href="pages/shopping.html">Supplies</a>
             <a href="pages/buyList.html">Buy List</a>
         </nav>
-
         <div class="container">
-            <div id="featured">
-                <img  class="img-fluid" width="2000" height=250 src="./Pictures/ccgholidarybanner.png" alt="feautred content">
-                <div id="scroll">
-                    <button data-feat="1" class="feat activeScroll"></button>
-                    <button data-feat="2" class="feat"></button>
-                    <button data-feat="3" class="feat"></button>
-                </div>
+
+            <div class="purchase">
+                <button class="purchaseButton">Proceed to checkout</button>
+                <p class="subItems">SubTotal(0 items)</p>
+                <p class="subTotal">$0.00</p>
             </div>
 
-            <div id="content">
-                <div id="sales">
-                    <h2>Sales</h2>
-                </div>
+            <section class="toBuy">
+                <h2>Shopping Cart</h2>
+            </section>
+        </div>
+       
 
-                <div id="events">
-                    <h2>Events</h2>
-
-                    <div class="storeInfo">
-                        <h3>Store Info</h3>
-                        <p><strong>Address</strong><Address>:4357 LakeFord Dr. 30041, Cumming GA</Address></p>
-                        <p><strong>Phone</strong>:678-947-8473</p>
-                        <p><strong>Email</strong>:CompassionCardGames@gmail.com</p>
-                        <img src="http://egcardsandcomics.com/wp-content/uploads/2012/02/store-front1.jpg" alt="Compassion Card Games Local Store">
-                    </div>
-                </div>
-
-                <div id="buyList">
-                    <h2>Buy List</h2>
-
-                </div>
-
-            </div>
+        
 
             <footer>
                     <nav>
@@ -113,8 +94,7 @@
             </footer>
         </div>
 
-        <script src="/js/API.js"></script>
-        <script src="/js/Homepage.js"></script>
-        <script src="/js/index.js"></script>
+
+        <script src="/js/shoppingCart.js"></script>
     </body>
 </html>

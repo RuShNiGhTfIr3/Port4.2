@@ -23,25 +23,40 @@ class Homepage{
     }
 
     loadEvents(){
-        let file = 'jsons/events.json';
         let div = document.querySelector("#events");
         fetch('jsons/events.json').then(res=>{
             return res.json();
         }).then(json=>{
+            let iterator=0;
             json.events.forEach(events=>{
                 let html="";
-                html+=`<div>
+                html+=`<div class="eventItem" data-type="events" data-id="${iterator}">
                 <h3>${events.title}</h3>
                 <img src=${events.picture} alt="${events.title} picture"/>
                 <p><strong>When</strong>:${events.date}</p>
                 <p><strong>Time</strong>:${events.time}</p>
                 <p><strong>Entry</strong>:${events.entry}</p>
                 <p><strong>Description</strong>:${events.description}</p>
-                <button>Read More</button>
+                <button class="eventButton">Read More</button>
                 `
                 div.insertAdjacentHTML('beforeend',html)
+                iterator=iterator+1;
             })
+
+            let buttons = document.querySelectorAll(".eventButton");
+            buttons.forEach(button=>{
+            button.addEventListener('click',this.readMore)
         })
+        })
+
+    }
+
+    readMore(e){
+        e.preventDefault();
+        localStorage.setItem("eventType",e.target.parentElement.dataset.type);
+        localStorage.setItem("eventId",e.target.parentElement.dataset.id);
+
+        window.location.href = '/pages/event.html';
     }
 
     changeFeatured(e){
@@ -95,17 +110,49 @@ class Homepage{
 
         sales.forEach(card=>{
             let html= '';
-            html+=`<div><p>${card.name}</p><img src="${card.image_uris.small}"/><p>${card.prices.usd}</p></div>`;
+            let cardString= JSON.stringify(card);
+
+            if(!card.prices.usd){
+                let price = 0.01+Math.floor(Math.random()*(100-0.01))
+                html+=`<div><div class="hidden">${cardString}</div><p>${card.name}</p><img src="${card.image_uris.small}"/><p>${"$"+price}</p></div>`;
+            }else{
+                html+=`<div><div class="hidden">${cardString}</div><p>${card.name}</p><img src="${card.image_uris.small}"/><p>$${card.prices.usd}</p></div>`;
+            }
             salesDiv.insertAdjacentHTML('beforeend',html);
         })
 
         buylist.forEach(card=>{
             let html= '';
-            console.log(card)
-            html+=`<div><p>${card.name}</p><img src="${card.image_uris.small}"/><p>${card.prices.usd}</p></div>`;
+            let cardString= JSON.stringify(card);
+            if(!card.prices.usd){
+                let price = 0.01+Math.floor(Math.random()*(100-0.01));
+                html+=`<div><div class="hidden">${cardString}</div><p>${card.name}</p><img src="${card.image_uris.small}"/><p>${"$"+price}</p></div>`;
+            }else{
+                html+=`<div><div class="hidden">${cardString}</div><p>${card.name}</p><img src="${card.image_uris.small}"/><p>${"$"+card.prices.usd}</p></div>`;
+            }
+        
             buyListDiv.insertAdjacentHTML('beforeend',html);
         })
+        let salesSection = document.querySelectorAll("#sales div");
+        let buyListSection= document.querySelectorAll("#buyList div")
 
+        salesSection.forEach(div=>{
+            div.addEventListener('click',function(e){this.viewCard(e,div)}.bind(this),true);
+        })
+
+        buyListSection.forEach(div=>{
+            div.addEventListener('click',function(e){this.viewCard(e,div)}.bind(this),true)
+        })
+
+    }
+
+    viewCard(e,card){
+        e.preventDefault();
+        let cardOBJ=card.getElementsByClassName("hidden")[0].innerHTML;
+
+        localStorage.setItem("selectedCard",cardOBJ)
+
+        window.location.href = '/pages/viewProduct.html';
     }
 
     randomCards(){

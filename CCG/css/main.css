@@ -68,13 +68,13 @@ header {
     top: 3.1rem;
     right: 1.6rem; }
 
-nav {
+#navBar {
   background-color: #272D2D;
   padding: .5rem;
   display: flex;
   justify-content: center;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.3); }
-  nav a {
+  #navBar a {
     text-decoration: none;
     color: white;
     text-transform: uppercase;
