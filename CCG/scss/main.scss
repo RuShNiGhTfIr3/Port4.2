@@ -60,6 +60,8 @@ header{
 .clear{
     clear: left;
     clear: right;
+    clear: top;
+    clear: both;
 }
 
 #navBar{
@@ -84,16 +86,16 @@ header{
 #featured{
     margin-top:1.5rem;
     border-style: none;
+}
 
-    img{
-        position: relative;
-    }
+.featuredImage{
+    position: relative;
 }
 
 #scroll{
     position:absolute;
     left: 50%;
-    bottom: 41.3rem;
+    bottom: 58%;
 }
 
 .feat{
@@ -127,11 +129,22 @@ background-color: white;
 }
 
 .eventItem{
-    width: 40%;
+    width: 80%;
+    margin: 1rem;
+    margin-right: 1rem;
 }
 
 .storeInfo{
     width: 30%;
+    float: right;
+    margin-left:auto;
+}
+
+.fill{
+    display: grid;
+    grid-template-columns:repeat(2,2fr);
+    grid-gap: 2rem;
+    margin: 0;
 }
 
 #content{
@@ -167,3 +180,18 @@ h2{
 .buyContent,.salesListContent{
     padding: 1.5rem;
 }
+
+.searchForm{
+    position: relative;
+}
+
+#modalSearch{
+    position: absolute;
+    z-index: 1;
+    border-radius: 5px;
+
+    li{
+        margin: 1rem;
+    }
+}
+

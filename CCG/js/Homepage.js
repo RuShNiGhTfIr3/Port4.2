@@ -26,7 +26,7 @@ class Homepage{
     }
 
     loadEvents(){
-        let div = document.querySelector(".eventContent");
+        let div = document.querySelector(".fill");
         fetch('jsons/events.json').then(res=>{
             return res.json();
         }).then(json=>{
@@ -149,25 +149,27 @@ class Homepage{
             if(!card.prices.usd){
                     let price = 0.01+Math.floor(Math.random()*(100-0.01));
                     html+=`<div class="salesContent">
-                    <div class="hidden">${cardString}</div>
-                    <p>${card.name}</p>`;
+                    <div class="hidden">${cardString}</div>`;
                     if(card.image_uris){
                         html+=`<img src="${card.image_uris.small}" alt="${card.name} picture"/>`;
                     }else{
                         html+=`<img width="146" height="204" src="https://ciat.cgiar.org/wp-content/uploads/image-not-found.png" alt="${card.name} picture">`;
                     }
-                    html+=`<p>${"$"+price}</p>
+                    html+=`<div class="contentText">
+                    <p>${card.name}</p>
+                    <p>${"$"+price}</p></div>
                     </div>`;
             }else{
                 html+=`<div class="salesContent">
-                <div class="hidden">${cardString}</div>
-                <p>${card.name}</p>`;
+                <div class="hidden">${cardString}</div>`;
                 if(card.image_uris){
                     html+=`<img src="${card.image_uris.small}" alt="${card.name}" picture/>`;
                 }else{
                     html+=`<img width="146" height="204" src="https://ciat.cgiar.org/wp-content/uploads/image-not-found.png" alt="${card.name} picture">`;
                 }
-                html+=`<p>${"$"+card.prices.usd}</p>
+                html+=`<div class="contentText">
+                <p>${card.name}</p>
+                <p>${"$"+card.prices.usd}</p>
                 </div>`;
             }
         

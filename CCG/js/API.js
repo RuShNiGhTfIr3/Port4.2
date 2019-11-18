@@ -27,15 +27,31 @@ class API{
         })
         .then(cards=>{
             div.innerHTML="";
-            for(let i=0;cards.total_cards<15;i++){
-                if(cards.data[i].name!=undefined){
-                    let html= '';
-                    html+=`<li><p>${i}${cards.data[i].name}</p></li>`
-                    div.insertAdjacentHTML('beforeend',html);
+            if(cards.total_cards>0){
+
+                for(let i=0;i<cards.total_cards;i++){
+                    if(cards.data[i].name!=undefined){
+                        let html= '';
+                        html+=`<li class="modalItem"><div class="hidden">${JSON.stringify(cards.data[i])}</div><p>${cards.data[i].name}</p></li>`
+                        div.insertAdjacentHTML('beforeend',html);
+                        let li = document.querySelectorAll(".modalItem");
+                        li.forEach(card=>{
+                            card.addEventListener('click',function(e){this.viewed(e,card)}.bind(this),true);
+                        })
+                    }
                 }
             }
            
         })
+    }
+
+    viewed(e,name){
+        e.preventDefault();
+        let cardOBJ=name.getElementsByClassName("hidden")[0].innerHTML;
+
+        localStorage.setItem("selectedCard",cardOBJ)
+
+        window.location.href = '/pages/viewProduct.html';
     }
 
     search(card){
