@@ -46,8 +46,9 @@ class API{
             throw new Error(res);
         }).then(res=>{
             return res;
-        })
-    }
+        }).catch(err=>{
+            return err;
+        })}
 
     Api(config) {
         const{endpoint = '/cards', method='GET'}= config;

@@ -17,24 +17,14 @@ h1, h2, h3 {
 input {
   font-size: inherit; }
 
-.img-fluid {
-  max-width: 100%;
-  height: auto; }
-
-.container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto; }
-
-#featured, #content, #sales, #events, #buyList, footer {
-  background-color: gray;
+footer {
   border-style: solid; }
 
 body {
   background-color: #C1DDDD;
   width: 100%;
-  margin: 0; }
+  margin: 0;
+  font-family: aller, sans-serif; }
 
 header {
   background-color: #4DD599;
@@ -98,11 +88,11 @@ header {
 #scroll {
   position: absolute;
   left: 50%;
-  bottom: 36.4rem; }
+  bottom: 41.3rem; }
 
 .feat {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   border-style: none;
   background-color: #F1F1F0;
@@ -117,14 +107,43 @@ header {
 #modalSearch {
   background-color: white; }
 
-#sales {
-  width: 25%; }
+#sales, #buyList {
+  margin-right: 3rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 1rem; }
+
+.eventItem {
+  width: 40%; }
+
+.storeInfo {
+  width: 30%; }
 
 #content {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 0; }
+  display: flex; }
 
 #events {
-  margin-right: auto;
-  margin-left: auto; }
+  margin-top: 1rem; }
+
+.salesContent {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem; }
+
+h2 {
+  text-transform: uppercase;
+  text-decoration: underline;
+  margin-bottom: 1rem; }
+
+.buyContent, .salesListContent, .eventContent {
+  background-color: #B0C9C9;
+  border-radius: 5px; }
+
+.buyContent, .salesListContent {
+  padding: 1.5rem; }

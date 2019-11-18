@@ -18,12 +18,15 @@ class Homepage{
     search=(e)=>{
         e.preventDefault();
         let term= document.querySelector("#searchBar").value
-        window.localStorage.setItem('searchedCard',term);
-        window.location.href = '/pages/shopping.html';
+        
+        if(/^\s*$/.test(term)==false){
+            window.localStorage.setItem('searchedCard',term);
+            window.location.href = '/pages/shopping.html';
+        }
     }
 
     loadEvents(){
-        let div = document.querySelector("#events");
+        let div = document.querySelector(".eventContent");
         fetch('jsons/events.json').then(res=>{
             return res.json();
         }).then(json=>{
@@ -73,11 +76,11 @@ class Homepage{
             break;
 
             case "2":
-                featuredImage.src="Pictures/Throne-of-Eldrane-information.png";
+                featuredImage.src="Pictures/plceholder1.png";
             break;
 
             case "3":
-                featuredImage.src="Pictures/Throne-of-Eldrane-information.jpg";
+                featuredImage.src="Pictures/placeholder2.png";
             break;
         }
     }
@@ -102,8 +105,8 @@ class Homepage{
     }
 
     async loadContent(){
-        let salesDiv=document.querySelector("#sales");
-        let buyListDiv=document.querySelector("#buyList");
+        let salesDiv=document.querySelector(".salesListContent");
+        let buyListDiv=document.querySelector(".buyContent");
         let sales = await this.randomCards();
         let buylist= await this.randomCards();
 
@@ -114,9 +117,28 @@ class Homepage{
 
             if(!card.prices.usd){
                 let price = 0.01+Math.floor(Math.random()*(100-0.01))
-                html+=`<div><div class="hidden">${cardString}</div><p>${card.name}</p><img src="${card.image_uris.small}"/><p>${"$"+price}</p></div>`;
+                html+=`<div class="salesContent">
+                <div class="hidden">${cardString}</div>`;
+                if(card.image_uris){
+                    html+=`<img src="${card.image_uris.small}" alt="${card.name} picture"/>`;
+                }else{
+                    html+=`<img width="146" height="204" src="https://ciat.cgiar.org/wp-content/uploads/image-not-found.png" alt="${card.name} picture">`;
+                }
+                html+=`<div class="contentText"><p>${card.name}
+                ${"$"+price}</p></div>
+                </div>`;
             }else{
-                html+=`<div><div class="hidden">${cardString}</div><p>${card.name}</p><img src="${card.image_uris.small}"/><p>$${card.prices.usd}</p></div>`;
+                html+=`<div class="salesContent">
+                <div class="hidden">${cardString}</div>`;
+                
+                if(card.image_uris){
+                    html+=`<img src="${card.image_uris.small}" alt="${card.name} picture"/>`;
+                }else{
+                    html+=`<img width="146" height="204" src="https://ciat.cgiar.org/wp-content/uploads/image-not-found.png" alt="${card.name} picture">`;
+                }
+                html+=`<div class="contentText"><p>${card.name}</p>
+                <p>$${card.prices.usd}</p></div>
+                </div>`;
             }
             salesDiv.insertAdjacentHTML('beforeend',html);
         })
@@ -125,10 +147,28 @@ class Homepage{
             let html= '';
             let cardString= JSON.stringify(card);
             if(!card.prices.usd){
-                let price = 0.01+Math.floor(Math.random()*(100-0.01));
-                html+=`<div><div class="hidden">${cardString}</div><p>${card.name}</p><img src="${card.image_uris.small}"/><p>${"$"+price}</p></div>`;
+                    let price = 0.01+Math.floor(Math.random()*(100-0.01));
+                    html+=`<div class="salesContent">
+                    <div class="hidden">${cardString}</div>
+                    <p>${card.name}</p>`;
+                    if(card.image_uris){
+                        html+=`<img src="${card.image_uris.small}" alt="${card.name} picture"/>`;
+                    }else{
+                        html+=`<img width="146" height="204" src="https://ciat.cgiar.org/wp-content/uploads/image-not-found.png" alt="${card.name} picture">`;
+                    }
+                    html+=`<p>${"$"+price}</p>
+                    </div>`;
             }else{
-                html+=`<div><div class="hidden">${cardString}</div><p>${card.name}</p><img src="${card.image_uris.small}"/><p>${"$"+card.prices.usd}</p></div>`;
+                html+=`<div class="salesContent">
+                <div class="hidden">${cardString}</div>
+                <p>${card.name}</p>`;
+                if(card.image_uris){
+                    html+=`<img src="${card.image_uris.small}" alt="${card.name}" picture/>`;
+                }else{
+                    html+=`<img width="146" height="204" src="https://ciat.cgiar.org/wp-content/uploads/image-not-found.png" alt="${card.name} picture">`;
+                }
+                html+=`<p>${"$"+card.prices.usd}</p>
+                </div>`;
             }
         
             buyListDiv.insertAdjacentHTML('beforeend',html);
