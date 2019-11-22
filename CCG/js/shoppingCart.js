@@ -11,9 +11,24 @@ class Cart{
 
         this.loadCart();
         this.subTotal();
+        this.cart();
 
         searchBar.addEventListener('input',this.searchModal.bind(this));
         searchForm.addEventListener('submit',this.search);
+    }
+
+    cart(){
+        let quan = document.querySelector(".quantity");
+        let length = localStorage.getItem("cartLength");
+        if(length>0){
+            quantityBubble+=`<p>${length}<p>`;
+        }
+        let quantityBubble='';
+        if(length>0){
+            quantityBubble+=`<p>${length}<p>`;
+        }
+        quan.innerHTML='';
+        quan.insertAdjacentHTML('beforeend',quantityBubble);
     }
 
     search=(e)=>{
@@ -40,7 +55,7 @@ class Cart{
             }
         }
  
-     }
+    }
 
     subTotal(){
         let subTotalText = document.querySelector(".subTotal");
@@ -112,7 +127,7 @@ class Cart{
         newString+=']}';
 
         let string = JSON.stringify(newString);
-        localStorage.setItem("shoppingCart",newString);
+        localStorage.setItem("shoppingCart",string);
         console.log(JSON.parse(localStorage.getItem("shoppingCart")))
 
         location.reload();

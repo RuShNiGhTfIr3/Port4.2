@@ -18,7 +18,36 @@ input {
   font-size: inherit; }
 
 footer {
-  border-style: solid; }
+  background: #058EBC;
+  display: flex;
+  flex-direction: row;
+  justify-content: center; }
+
+footer a {
+  color: black;
+  text-decoration: none;
+  display: inline; }
+
+footer img {
+  width: 30px;
+  height: 30px; }
+
+footer ul {
+  display: flex; }
+
+footer li {
+  margin: 5px; }
+
+.copyRight {
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  text-transform: uppercase; }
+
+footer > div {
+  margin: 1rem; }
 
 body {
   background-color: #C1DDDD;
@@ -34,7 +63,7 @@ header {
   header h1 {
     text-transform: uppercase;
     font-family: 'Baloo', cursive;
-    font-size: 2em;
+    font-size: 3em;
     font-weight: 700px;
     color: #F2F3F4; }
   header input {

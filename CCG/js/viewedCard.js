@@ -14,6 +14,21 @@ class View{
 
         searchBar.addEventListener('input',this.searchModal.bind(this));
         searchForm.addEventListener('submit',this.search);
+        this.cart();
+    }
+
+    cart(){
+        let quan = document.querySelector(".quantity");
+        let length = localStorage.getItem("cartLength");
+        if(quan.classList.contains("hidden")){
+            quan.classList.toggle("hidden");
+        }
+        let quantityBubble='';
+        if(length>0){
+            quantityBubble+=`<p>${length}<p>`;
+        }
+        quan.innerHTML='';
+        quan.insertAdjacentHTML('beforeend',quantityBubble);
     }
 
     search=(e)=>{
@@ -116,6 +131,7 @@ class View{
         let card= page.getElementsByClassName("hidden")[0].innerHTML;
         let object= JSON.parse(card);
         let formatted=this.format(object.name,object.prices.usd,object.set,object.image_uris.small,object.collector_number,object.rarity);
+        let quan = document.querySelector(".quantity");
 
         if(localStorage.getItem("shoppingCart")){
             let cards= localStorage.getItem("shoppingCart");
@@ -136,6 +152,11 @@ class View{
             let json="{\"cards\":["+JSON.stringify(formatted)+"]}";
             localStorage.setItem("shoppingCart",json);
         }
+
+        let objs= JSON.parse(localStorage.getItem("shoppingCart"));
+        localStorage.setItem("cartLength",objs.cards.length);
+
+        this.cart();
     }
 
     addToBuyCart(e,page){

@@ -10,9 +10,24 @@ class Events{
         this.api=new API();
 
         this.loadEvents();
+        this.cart();
 
         searchBar.addEventListener('input',this.searchModal.bind(this));
         searchForm.addEventListener('submit',this.search);
+    }
+
+    cart(){
+        let quan = document.querySelector(".quantity");
+        let length = localStorage.getItem("cartLength");
+        if(quan.classList.contains("hidden")){
+            quan.classList.toggle("hidden");
+        }
+        let quantityBubble='';
+        if(length>0){
+            quantityBubble+=`<p>${length}<p>`;
+        }
+        quan.innerHTML='';
+        quan.insertAdjacentHTML('beforeend',quantityBubble);
     }
 
     search=(e)=>{
