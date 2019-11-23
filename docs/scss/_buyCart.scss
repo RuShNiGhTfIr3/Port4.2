@@ -1,0 +1,68 @@
+.buyCartContent{
+    max-width: 90% !important;
+    margin-top: 1.5rem;
+    font-family: aller, sans-serif;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
+.sellCards{
+    max-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    margin-left: 4rem;
+    background:#E4EAE1;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: 400;
+
+    button{
+        border-style: none;
+        border-radius: 5px;
+        background: #9CAFB7;
+        color: white;
+        text-transform: uppercase;
+    }
+}
+
+.toSell{
+    h2{
+        text-transform: uppercase;
+        text-decoration-line: underline;
+        font-weight: 600;
+    }
+}
+
+.cartItem{
+    background: #D0D5CD;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    display: flex;
+    margin: 1rem;
+    padding: 1rem;
+    align-items: center;
+
+    button{
+        border-style: none;
+        border-radius: 5px;
+        background: #9CAFB7;
+        color: white;
+        text-transform: uppercase;
+        font-weight: 400;
+    }
+}
+
+.cartText{
+    margin-left: 1rem;
+}
+
+.cartItemPrice{
+    color: green;
+}
+
+.set{
+    text-transform: uppercase;
+}
+

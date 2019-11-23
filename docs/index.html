@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>CCG</title>
+      <link rel="short icon" type="iamge/png" href="/Icons/Icon.png"
+      <meta name=" " content=" ">
+      <link rel="stylesheet" href="/css/main.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   </head>
+   <body>
+       <header>
+            <div class="container header text-center">
+                <div class="branding row">
+                    <a href="index.html"><img src="/Icons/Icon.png" alt="ccg logo"></a>
+                    <h1>Compassion Card Games</h1>
+                </div>
+                <div class="search">
+                    <div class="searchIcons">
+                            <img id="userIcon" src="/Icons/usericon.png" width="25" height="25" alt="user Icon">
+                            <a id="shoppingCart" href="/pages/cart.html"><img src="/Icons/shoppingcart.png" width="25" height="25" alt="shopping cart"></a>
+                            <div class="quantity hidden"></div>
+                    </div>
+                    <form class="searchInput">
+                        <input autocomplete="off" type="text"/>
+                    </form>
+                    <div class="hidden" id="modalSearch">
+                        <ul id="modalCards">
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <nav class="navBar">
+            <div class="container">
+                <a href="index.html">Home</a>
+                <a href="pages/events.html">Events</a>
+                <a href="pages/shopping.html">Sales</a>
+                <a href="pages/shopping.html">Magic</a>
+                <a href="pages/shopping.html">Yu-gi-oh</a>
+                <a href="pages/shopping.html">Pokemon</a>
+                <a href="pages/shopping.html">RolePlay</a>
+                <a href="pages/shopping.html">Supplies</a>
+                <a href="pages/buyList.html">Buy List</a>
+            </div>
+        </nav>
+        <div class="container content">
+            <div class="featured">
+                <img  class="img-fluid featuredImage" width="2000" height=250 src="./images/ccgholidarybanner.png" alt="feautred content">
+                <div class="scroll">
+                    <button data-feat="1" class="feat activeScroll"></button>
+                    <button data-feat="2" class="feat"></button>
+                    <button data-feat="3" class="feat"></button>
+                </div>
+            </div>
+            <div class="row my-row">
+                <section class="sideBar col-3">
+                    <section class="sales">
+                        <h2>Sales</h2>
+                        <div class="salesContainer">
+    
+                        </div>
+                    </section>
+                    <section class="buyList">
+                        <h2>Buy List</h2>
+                        <div class="buyListContainer">
+        
+                        </div>
+                    </section> 
+                </section>
+
+                <section class="eventSection col-9">
+                    <h2>Events</h2>
+                    <div class="events row">
+                        <div class="featuredEvent col-6">
+                            <!-- content -->
+                        </div>
+                        <div class="storeInfo col-5">
+                            <h3>Store Info</h3>
+                            <p><strong>Address</strong>:4357 LakeFord Dr. 30041, Cumming GA</p>
+                            <p><strong>Phone</strong>:678-947-8473</p>
+                            <p><strong>Email</strong>:CompassionCardGames@gmail.com</p>
+                            <img src="./images/storeFront.jpg" alt="Compassion Card Games Local Store">
+                        </div>
+                        
+                    </div>
+                    <div class="eContent row">
+                        <!-- content -->
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <footer>
+            <section class="container footer">
+                <div class="help">
+                    <h4>How can we Help?</h4>
+                    <ul>
+                        <li><a href="/pages/contactUs.html">Contact Us</a></li>
+                    </ul>
+                </div>
+        
+                <div class="shop">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="/pages/magic.html">Magic</a></li>
+                        <li><a href="/pages/magic.html">Yu-gi-oh</a></li>
+                    </ul>
+                </div>
+        
+                <div class="About Us">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="/pages/aboutUs.html">About Us</a></li>
+                        <li><a href="/pages/vaules.html">Our values</a></li>
+                    </ul>
+                </div>
+        
+                <div class="social">
+                    <h4>Social Media</h4>
+                    <ul>
+                        <li><a href="fb"><img src="https://image.flaticon.com/icons/svg/174/174848.svg"></a></li>
+                        <li><a href="insta"><img src="https://image.flaticon.com/icons/svg/174/174855.svg"></a></li>
+                        <li><a href="twitter"><img src="https://image.flaticon.com/icons/svg/145/145812.svg"></a></li>
+                        <li><a href="youtube"><img src="https://image.flaticon.com/icons/svg/174/174883.svg"></a></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="copyRight">
+                    <p>@Wizards of the Coast 2019</p>
+            </section>
+        </footer>
+    <script src="/js/api.js"></script>
+    <script src="/js/homepage.js"></script>
+   </body>
+</html>

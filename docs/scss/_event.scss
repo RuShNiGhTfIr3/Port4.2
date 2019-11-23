@@ -1,0 +1,34 @@
+.eventPageContent{
+    margin-top: 1rem;
+    h2{
+        text-decoration: underline;
+        text-align: center;
+    }
+}
+
+.selectedEvent{
+    background:#D0D5CD;
+    border-radius: 5px;
+    text-align: center;
+    padding: .5rem;
+
+    p{
+        text-align: left;
+        font-size: 1.2em;
+    }
+
+    strong{
+        text-transform: uppercase;
+    }
+    
+    img{
+        margin-top: 1rem;
+    }
+
+}
+
+.selectedText{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+}

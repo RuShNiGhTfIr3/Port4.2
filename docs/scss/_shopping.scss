@@ -1,0 +1,64 @@
+.results{
+    background: #D0D5CD;
+    font-weight: 600;
+    border-radius: 0 0 5px 5px;
+    padding: .3rem;
+}
+
+.shoppingContent{
+    max-width: 90% !important;
+    font-family: aller, sans-serif;
+}
+
+.cardResults{
+    margin-top:2rem;
+}
+
+.item{
+    background: #D0D5CD;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    display: flex;
+    margin: 1rem;
+    padding: 1rem;
+    align-items: center;
+}
+
+.salesItemText{
+    margin-left: 1rem;
+    p{
+        color: white;
+    }
+}
+
+.itemPrices{
+    margin-left: auto;
+    margin-right: auto;
+
+    li{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    button{
+        width: 10rem;
+        height: 30px;
+        margin-left: 1rem;
+        border-style: none;
+        background: #9CAFB7;
+        color: white;
+        border-radius: 5px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    p{
+        font-weight: 500;
+    }
+}
+
+.itemPrice{
+    color: green;
+    margin-left: 1rem;
+}

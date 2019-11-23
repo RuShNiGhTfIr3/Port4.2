@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+@import 'homepage.scss';
+@import 'events.scss';
+@import 'event.scss';
+@import 'shopping.scss';
+@import 'buyList.scss';
+@import 'viewed.scss';
+@import 'cart.scss';
+@import'buyCart.scss';
+@import 'contact.scss';
+
+body{
+    background-color: #F1F7ED!important;
+    font-family: aller, sans-serif;
+}
+
+.hidden{
+    display: none;
+}
+
+
+.header{
+    max-width: 100% !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #4DD599;
+    padding: .5rem;
+    border-style: none;
+    h1{
+        margin: auto;
+        text-transform: uppercase;
+        font-family: 'Righteous', cursive;
+        font-weight: 700;
+        font-size: 3em;
+    }
+
+    img{
+        margin-left: 1rem;
+    }
+
+    input{
+        border-style: none;
+        border-radius: 5px;
+        width: 12rem;
+    }
+}
+
+.searchIcons{
+    text-align: right;
+}
+
+.navBar{
+    background: black;
+    text-align: center;
+    padding: .5rem;
+    box-shadow: 10px 5px 5px rgba(0,0,0,.30);
+
+    a{
+        color: white;
+        margin-right: 1rem;
+        font-size: 1.6em;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    a:hover{
+        text-decoration: none;
+    }
+}
+
+footer{
+    background: #D0E3CC;
+    margin-top: 1rem;
+}
+
+footer .container{
+    max-width: 100% !important;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+.footer{
+    display: flex;
+    list-style: none;
+    margin: auto;
+    padding: .5rem;
+    justify-content: center;
+    ul{
+        list-style: none;
+        padding: 0;
+    }
+
+    div{
+        margin-right: 1rem;
+    }
+
+    img{
+        width: 25px;
+    }
+
+    h4{
+        text-transform: uppercase;
+        font-size: 1.3em;
+    }
+
+    a{
+        color: black;
+    }
+
+    a:hover{
+        color: blue;
+    }
+}
+
+
+
+.social{
+    ul{
+        display: flex;
+        justify-content: center;
+    }
+
+    li{
+        margin-right: .5rem;
+    }
+}
+
+.copyRight{
+    text-align: center;
+    color: white;
+    background: black;
+    padding: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#modalSearch{
+    background: white;
+    position: absolute;
+    z-index: 1;
+    border-radius: 5px;
+    margin-right: 1rem;
+
+    ul{
+         list-style: none;
+         padding: 1rem;
+         text-align: left;
+    }
+    li{
+        margin: 0;
+    }
+}
+
