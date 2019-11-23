@@ -1,2 +1,302 @@
-.container {
-  border-style: solid; }
+@import url("https://fonts.googleapis.com/css?family=Righteous&display=swap");
+.content {
+  max-width: 90% !important;
+  margin-top: 1.5rem;
+  font-family: aller, sans-serif; }
+  .content h2 {
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 1rem;
+    font-weight: 500; }
+
+.featuredImage {
+  position: relative; }
+
+.scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 64.5%; }
+
+.feat {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border-style: none;
+  background-color: #E4EAE1;
+  margin: 2px; }
+
+.activeScroll {
+  background-color: #A1D8D3; }
+
+.salesItem {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  padding: .5rem; }
+  .salesItem img {
+    margin-top: 2rem; }
+
+.salesItem:last-of-type {
+  margin-bottom: 0; }
+
+.sales, .buyList {
+  max-width: 275px; }
+
+.itemText {
+  margin-left: .5rem; }
+
+.salesContainer, .buyListContainer, .events, .eContent {
+  background: #E4EAE1;
+  border-radius: 5px; }
+
+.eventItem {
+  background: #D0D5CD;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: .5rem;
+  max-width: 30% !important; }
+  .eventItem h3 {
+    text-align: center; }
+  .eventItem img {
+    width: 200px;
+    border-radius: 5px; }
+  .eventItem p {
+    margin-bottom: .5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .eventItem p:first-of-type {
+    margin-top: 1rem; }
+  .eventItem button {
+    border-style: none;
+    border-radius: 5px;
+    background: #9CAFB7;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400; }
+
+.storeInfo {
+  background: #D0D5CD;
+  border-radius: 5px;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0; }
+  .storeInfo h3 {
+    text-align: center;
+    margin-top: 1rem; }
+  .storeInfo img {
+    width: 300px;
+    margin-right: auto;
+    margin-left: auto; }
+
+.eContent {
+  justify-content: center;
+  margin-bottom: 1rem; }
+
+.featuredEvent, .storeInfo, .eventItem {
+  margin-top: 1rem; }
+
+.featuredItem {
+  background: #D0D5CD;
+  border-radius: 5px;
+  padding: 1rem; }
+  .featuredItem h3 {
+    text-align: center; }
+  .featuredItem img {
+    width: 400px;
+    border-radius: 5px; }
+  .featuredItem p {
+    max-height: 100px;
+    margin-bottom: .5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .featuredItem p:first-of-type {
+    margin-top: 1rem; }
+  .featuredItem button {
+    border-style: none;
+    border-radius: 5px;
+    background: #9CAFB7;
+    color: white; }
+
+.my-row {
+  margin-top: 2rem; }
+
+.eventsContent {
+  max-width: 90% !important;
+  margin-top: 1.5rem;
+  font-family: aller, sans-serif; }
+  .eventsContent h2 {
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-weight: 500; }
+
+.eventItems {
+  max-height: 50rem;
+  margin-bottom: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+  background: #D0D5CD;
+  border-radius: 5px; }
+  .eventItems img {
+    width: 400px; }
+  .eventItems p {
+    margin-bottom: .5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .eventItems p:first-of-type {
+    margin-top: 1rem; }
+  .eventItems h3 {
+    font-weight: 400;
+    margin-top: .5rem; }
+  .eventItems button {
+    margin-bottom: .5rem;
+    border-style: none;
+    border-radius: 5px;
+    background: #9CAFB7;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400; }
+
+.eventItems:first-of-type {
+  margin-top: 2rem; }
+
+.eventItems:last-of-type {
+  margin-bottom: 2rem; }
+
+.weeklyContent, .otherContent {
+  background: #E4EAE1;
+  border-radius: 5px; }
+
+.weeklyEvents, .otherEvents {
+  margin-top: 1rem; }
+
+.eventPageContent {
+  margin-top: 1rem; }
+  .eventPageContent h2 {
+    text-decoration: underline;
+    text-align: center; }
+
+.selectedEvent {
+  background: #D0D5CD;
+  border-radius: 5px;
+  text-align: center;
+  padding: .5rem; }
+  .selectedEvent p {
+    text-align: left;
+    font-size: 1.2em; }
+  .selectedEvent strong {
+    text-transform: uppercase; }
+  .selectedEvent img {
+    margin-top: 1rem; }
+
+.selectedText {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem; }
+
+body {
+  background-color: #F1F7ED !important; }
+
+.hidden {
+  display: none; }
+
+.header {
+  max-width: 100% !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #4DD599;
+  padding: .5rem;
+  border-style: none; }
+  .header h1 {
+    margin: auto;
+    text-transform: uppercase;
+    font-family: 'Righteous', cursive;
+    font-weight: 700;
+    font-size: 3em; }
+  .header img {
+    margin-left: 1rem; }
+  .header input {
+    border-style: none;
+    border-radius: 5px;
+    width: 12rem; }
+
+.searchIcons {
+  text-align: right; }
+
+.navBar {
+  background: black;
+  text-align: center;
+  padding: .5rem;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.3); }
+  .navBar a {
+    color: white;
+    margin-right: 1rem;
+    font-size: 1.6em;
+    text-transform: uppercase;
+    font-weight: 600; }
+  .navBar a:hover {
+    text-decoration: none; }
+
+footer {
+  background: #D0E3CC;
+  margin-top: 1rem; }
+
+footer .container {
+  max-width: 100% !important;
+  padding-right: 0px !important;
+  padding-left: 0px !important; }
+
+.footer {
+  display: flex;
+  list-style: none;
+  margin: auto;
+  padding: .5rem;
+  justify-content: center; }
+  .footer ul {
+    list-style: none;
+    padding: 0; }
+  .footer div {
+    margin-right: 1rem; }
+  .footer img {
+    width: 25px; }
+  .footer h4 {
+    text-transform: uppercase;
+    font-size: 1.3em; }
+  .footer a {
+    color: black; }
+  .footer a:hover {
+    color: blue; }
+
+.social ul {
+  display: flex;
+  justify-content: center; }
+
+.social li {
+  margin-right: .5rem; }
+
+.copyRight {
+  text-align: center;
+  color: white;
+  background: black;
+  padding: 1rem;
+  text-transform: uppercase;
+  text-align: center; }
+
+#modalSearch {
+  background: white;
+  position: absolute;
+  z-index: 1;
+  border-radius: 5px;
+  margin-right: 1rem; }
+  #modalSearch ul {
+    list-style: none;
+    padding: 1rem;
+    text-align: left; }
+  #modalSearch li {
+    margin: 0; }
