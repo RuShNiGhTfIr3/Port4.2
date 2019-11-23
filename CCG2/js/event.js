@@ -5,7 +5,8 @@ window.addEventListener('DOMContentLoaded',function(e){
 
 class Event{
     constructor(){
-        console.log("event loaded")
+        console.log("event loaded");
+        this.api = new API();
         let searchBar= document.querySelector(".searchInput input");
         let searchForm= document.querySelector(".searchInput");
         this.loadEvent();
@@ -31,7 +32,7 @@ class Event{
 
     search=(e)=>{
         e.preventDefault();
-        let term= document.querySelector("#searchBar").value
+        let term= document.querySelector(".searchInput input").value
         window.localStorage.setItem('searchedCard',term);
         window.location.href = '/pages/shopping.html';
     }

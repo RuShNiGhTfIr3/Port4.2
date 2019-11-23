@@ -1,0 +1,66 @@
+.contact{
+    max-width: 90% !important;
+    font-family: aller, sans-serif;
+    margin-top: 2rem;
+    
+    margin-left: auto !important;
+    margin-right: auto !important;
+    h2{
+        text-transform: uppercase;
+        text-decoration-line: underline;
+    }
+}
+
+.information{
+    
+    
+}
+
+.location{
+    
+
+    img{
+        border-radius: 10px;
+        box-shadow: 10px 5px 5px rgba(0,0,0,.30);
+    }
+}
+
+.contactForm{
+    
+    display: flex;
+    flex-direction: column;
+
+    form{
+        display: flex;
+        flex-direction: column;
+        background: #D0D5CD;
+        padding: 2rem;
+        border-radius: 5px;
+        justify-content: center;
+
+        input{
+            margin-bottom: 1rem;
+            border-style: none;
+            border-radius: 5px;
+            padding: .5rem;
+        }
+
+        input:last-of-type{
+            height: 70px;
+        }
+
+        button{
+            width: 90%;
+            height: 30px;
+            margin-left: 1rem;
+            border-style: none;
+            background: #9CAFB7;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        
+    }
+}

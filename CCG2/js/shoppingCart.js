@@ -79,15 +79,17 @@ class Cart{
             let parsed=JSON.parse(cart);
             let section =document.querySelector(".toBuy");
             let iterator=0;
-            console.log(parsed)
+
             parsed.cards.forEach(card=>{
                 let html='';
-                html+=`<div data-id=${iterator} class"cartItem">
-                <h3>${card.name}</h3>
+                html+=`<div data-id=${iterator} class="cartItem">
                 <img src="${card.img}"/>
-                <p>${card.set}</p>
-                <p>${card.rarity}*${card.number}</p>
-                <p>$${card.price}</p>
+                <div class="cartText">
+                    <h3>${card.name}</h3>
+                    <p class="set">${card.set}</p>
+                    <p>Rarity ${card.rarity}* Number ${card.number}</p>
+                    <p class="cartItemPrice">$${card.price}</p>
+                </div>
                 <button class="removeItemCart"> remove</button>
                 </div>`;
                 section.insertAdjacentHTML('beforeend',html);

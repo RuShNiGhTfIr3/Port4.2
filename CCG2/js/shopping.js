@@ -21,7 +21,6 @@ class Shopping{
     }
 
     cart(){
-        console.log("test")
         let quan = document.querySelector(".quantity");
         let length = localStorage.getItem("cartLength");
         if(quan.classList.contains("hidden")){
@@ -37,7 +36,8 @@ class Shopping{
 
     searchBar=(e)=>{
         e.preventDefault();
-        let term= document.querySelector(".searchInput").value
+        let term= document.querySelector(".searchInput Input").value
+
         window.localStorage.setItem('searchedCard',term);
         window.location.href = '/pages/shopping.html';
     }
@@ -81,15 +81,14 @@ class Shopping{
             resultsBar.insertAdjacentHTML('beforeend',html);
         }else{
         html+=`<p>
-        30 results "${term}" in Magic The Gathering
+        ${found.data.length} Results "${term}" in Magic The Gathering
         </p>
         `;
         resultsBar.insertAdjacentHTML('beforeend',html);
         
         found.data.forEach(card=>{
             let html='';
-            html+=`<div class="item"><div class="hidden">${JSON.stringify(card)}</div>
-            <h2>${card.name}</h2>`;
+            html+=`<div class="item row"><div class="hidden">${JSON.stringify(card)}</div>`;
 
             if(card.image_uris){
                 html+=`<img src="${card.image_uris.small}" alt="${card.name} picture">`;
@@ -97,31 +96,31 @@ class Shopping{
                 html+=`<img width="146" height="204" src="https://ciat.cgiar.org/wp-content/uploads/image-not-found.png" alt="${card.name} picture">`;
             }
 
-            html+=`<p>${card.set}<p>
-            <p>${card.rarity[0]}*${card.collector_number}<p>`;
+            html+=`<div class="salesItemText"><h2>${card.name}</h2><p>${card.set} (Magic) Rarity ${card.rarity[0]}*Number${card.collector_number}</p>
+            </div><div class="itemPrices">`;
 
             if(card.prices.usd){
                 let hp= this.heavyPlay(card.prices.usd);
                 let lp= this.lightPlay(card.prices.usd);
-                html+=`<p>
-                Near Mint:$${card.prices.usd}<button class="buy"  data-near=${card.prices.usd}>Buy</button>
-                Light Play:$${lp}<button class="buy"  data-lp=${lp}>Buy</button>
-                Heavy Play:$${hp}<button class="buy"  data-hp=${hp}>Buy</button>
-                </p>
+                html+=`<ul>
+                <li><p>Near Mint:</p><p class="itemPrice">$${card.prices.usd}</p><button class="buy"  data-near=${card.prices.usd}>Add to cart</button></li>
+                <li><p>Light Play:</p><p class="itemPrice">$${lp}</p><button class="buy"  data-lp=${lp}>Add to cart</button></li>
+                <li><p>Heavy Play:</p><p class="itemPrice">$${hp}</p><button class="buy"  data-hp=${hp}>Add to cart</button></li>
+                </ul>
                 `;
             }else{
                 let price = 0.01+Math.floor(Math.random()*(100-0.01));
                 let lp= this.lightPlay(price);
                 let hp= this.heavyPlay(price)
      
-                html+=`<p>
-                Near Mint:$${price}<button class="buy"  data-near=${price}>Buy</button>
-                Light Play:$${lp}<button class="buy"  data-lp=${lp}>Buy</button>
-                Heavy Play:$${hp}<button class="buy"  data-hp=${hp}>Buy</button>
-                </p>
+                html+=`<ul>
+                <li><p>Near Mint:</p><p class="itemPrice">$${price}</p><button class="buy"  data-near=${price}>Add to cart</button></li>
+                <li><p>Light Play:</p><p class="itemPrice">$${lp}</p><button class="buy"  data-lp=${lp}>Add to cart</button></li>
+                <li><p>Heavy Play:</p><p class="itemPrice">$${hp}</p><button class="buy"  data-hp=${hp}>Add to cart</button></li>
+                </ul>
                 `;
             }
-            
+            html+=`</div>`
             results.insertAdjacentHTML('beforeend',html);
         })
         let buttons = document.querySelectorAll(".buy");

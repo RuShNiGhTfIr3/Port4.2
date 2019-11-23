@@ -2,9 +2,16 @@
 @import 'homepage.scss';
 @import 'events.scss';
 @import 'event.scss';
+@import 'shopping.scss';
+@import 'buyList.scss';
+@import 'viewed.scss';
+@import 'cart.scss';
+@import'buyCart.scss';
+@import 'contact.scss';
 
 body{
     background-color: #F1F7ED!important;
+    font-family: aller, sans-serif;
 }
 
 .hidden{

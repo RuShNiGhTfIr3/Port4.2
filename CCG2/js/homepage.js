@@ -92,23 +92,21 @@ class Homepage{
 
     changeFeatured(e){
         let active= document.querySelector(".activeScroll");
-        let featuredImage= document.querySelector("#featured img");
+        let featuredImage= document.querySelector(".featuredImage");
         active.classList.toggle("activeScroll");
         e.target.classList.toggle("activeScroll");
 
-        console.log(e.target.dataset.feat)
         switch(e.target.dataset.feat){
             case "1":
-            featuredImage.src="Pictures/ccgholidarybanner.png";
-            console.log("test")
+            featuredImage.src="/images/ccgholidarybanner.png";
             break;
 
             case "2":
-                featuredImage.src="Pictures/plceholder1.png";
+                featuredImage.src="/images/plceholder1.png";
             break;
 
             case "3":
-                featuredImage.src="Pictures/placeholder2.png";
+                featuredImage.src="/images/placeholder2.png";
             break;
         }
     }

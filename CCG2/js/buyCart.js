@@ -48,13 +48,16 @@ class Buy{
 
         parsed.cards.forEach(card=>{
             let html='';
-            html+=`<div data-id=${iterator} class"cartItem">
-            <h3>${card.name}</h3>
-            <img src="${card.img}"/>
-            <p>${card.set}</p>
-            <p>${card.rarity}*${card.number}</p>
-            <p>$${card.price}</p>
-            <button class="removeItemBuyCart"> remove</button>
+            html+=`
+            <div data-id=${iterator} class="cartItem">
+                <img src="${card.img}"/>
+                <div class="cartText">
+                    <h3>${card.name}</h3>
+                    <p class="set">${card.set}</p>
+                    <p>Rarity ${card.rarity}* Number ${card.number}</p>
+                    <p>$${card.price}</p>
+                </div>
+                <button class="removeItemBuyCart"> remove</button>
             </div>`;
             section.insertAdjacentHTML('beforeend',html);
             iterator=iterator+1;

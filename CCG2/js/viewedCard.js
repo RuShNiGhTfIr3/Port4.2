@@ -33,7 +33,7 @@ class View{
 
     search=(e)=>{
         e.preventDefault();
-        let term= document.querySelector("#searchBar").value
+        let term= document.querySelector(".searchInput input").value
         window.localStorage.setItem('searchedCard',term);
         window.location.href = '/pages/shopping.html';
     }
@@ -78,36 +78,38 @@ class View{
         let page =document.querySelector(".sellPage")
         let html='';
 
-        html+=`<div>
+        html+=`<div class="viewedCard">
         <h3>${parsed.name}</h3>
         <img src="${parsed.image_uris.small}"/>
-        <p>${parsed.set}</p>
-        <p>${parsed.rarity}*${parsed.collector_number}</p>`;
+        <p class="viewedSet">${parsed.set}</p>
+        <p class="viewedRarity">Rarirty ${parsed.rarity}*Number ${parsed.collector_number}</p>`;
 
         if(parsed.prices.usd){
             let hp= this.heavyPlay(parsed.prices.usd);
             let lp= this.lightPlay(parsed.prices.usd);
 
-            html+=`<p><div class="hidden">${card}</div>
-            Near Mint:$${parsed.prices.usd}<button class="buy"  data-near=${parsed.prices.usd}>Buy</button>
-            Light Play:$${lp}<button class="buy"  data-lp=${lp}>Buy</button>
-            Heavy Play:$${hp}<button class="buy"  data-hp=${hp}>Buy</button>
-            Near Mint:$${this.buyList(parsed.prices.usd)}<button class="sell"  data-near=${this.buyList(parsed.prices.usd)}>Sell</button>
-            Light Play:$${this.buyList(lp)}<button class="sell"  data-lp=${this.buyList(lp)}>Sell</button>
-            Heavy Play:$${this.buyList(hp)}<button class="sell"  data-hp=${this.buyList(hp)}>Sell</button>
-            </p>`;
+            html+=`<div class="hidden">${card}</div>
+            <ul class="viewedPrices">
+            <li><p class="condition">Near Mint:</p><p class="viwedPrice">$${parsed.prices.usd}</p><button class="buy"  data-near=${parsed.prices.usd}>Buy</button></li>
+            <li><p class="condition">Light Play:</p><p class="viwedPrice">$${lp}<button class="buy"  data-lp=${lp}>Buy</button></li>
+            <li><p class="condition">Heavy Play:</p><p class="viwedPrice">$${hp}<button class="buy"  data-hp=${hp}>Buy</button></li>
+            <li><p class="condition">Near Mint:</p><p class="viwedPrice">$${this.buyList(parsed.prices.usd)}<button class="sell"  data-near=${this.buyList(parsed.prices.usd)}>Sell</button></li>
+            <li><p class="condition">Light Play:</p><p class="viwedPrice">$${this.buyList(lp)}<button class="sell"  data-lp=${this.buyList(lp)}>Sell</button></li>
+            <li><p class="condition">Heavy Play:</p><p class="viwedPrice">$${this.buyList(hp)}<button class="sell"  data-hp=${this.buyList(hp)}>Sell</button></li>
+            </ul>`;
         }else{
             let price = 0.01+Math.floor(Math.random()*(100-0.01));
             let lp= this.lightPlay(price);
             let hp= this.heavyPlay(price);
-            html+=`<p><div class="hidden">${card}</div>
-            Near Mint:$${price}<button class="buy"  data-near=${price}>Buy</button>
-            Light Play:$${lp}<button class="buy"  data-lp=${lp}>Buy</button>
-            Heavy Play:$${hp}<button class="buy"  data-hp=${hp}>Buy</button>
-            Near Mint:$${price}<button class="sell"  data-near=${this.buyList(price)}>Sell</button>
-            Light Play:$${lp}<button class="sell  data-lp=${this.buyList(lp)}>Sell</button>
-            Heavy Play:$${hp}<button class="sell"  data-hp=${this.buyList(hp)}>Sell</button>
-            </p>`;
+            html+=`<div class="hidden">${card}</div>
+            <ul class="viewedPrices">
+            <li><p class="condition">Near Mint:</p><p class="viwedPrice">$${price}<button class="buy"  data-near=${price}>Buy</button></li>
+            <li><p class="condition">Light Play:</p><p class="viwedPrice">$${lp}<button class="buy"  data-lp=${lp}>Buy</button></li>
+            <li><p class="condition">Heavy Play:</p><p class="viwedPrice">$${hp}<button class="buy"  data-hp=${hp}>Buy</button></li>
+            <li><p class="condition">Near Mint:</p><p class="viwedPrice">$${price}<button class="sell" data-near=${this.buyList(price)}>Sell</button>
+            <li><p class="condition">Light Play:</p><p class="viwedPrice">$${lp}<button class="sell" data-lp=${this.buyList(lp)}>Sell</button>
+            <li><p class="condition">Heavy Play:</p><p class="viwedPrice">$${hp}<button class="sell" data-hp=${this.buyList(hp)}>Sell</button>
+            </ul>`;
         }
         
         html+=`</div>`;
